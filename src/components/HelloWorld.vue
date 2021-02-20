@@ -61,10 +61,10 @@
 
     <div class="container">
       <div   v-show="show" >
-        <h3 class="m-5">Best Apps</h3>
+        <h3 class="m-5"><b>Best Apps</b></h3>
         <div class="row">
           <div v-for="(item, index) in items" :key="index">
-            <div class="card" style="width: 12rem; margin: 1rem">
+            <div class="card" style="width: 12rem; margin: 2rem">
               <img
                 class="card-img-top"
                 :src="getImgUrl(item.img)"
@@ -78,9 +78,9 @@
           </div>
         </div>
 
-        <h3 class="m-5">Select Apps</h3>
+        <h3 class="m-5"><b>Special Apps</b></h3>
         <div class="row">
-          <div v-for="(item, index) in items" :key="index">
+          <div v-for="(item, index) in specialitems" :key="index">
             <div class="card" style="width: 12rem; margin: 1rem">
               <img
                 class="card-img-top"
@@ -112,6 +112,9 @@ export default {
         { img: "App D.png" },
         { img: "App E.jpg" },
       ],
+      specialitems:[
+        { img: "JB X.png" },
+      ]
     };
   },
   methods: {
