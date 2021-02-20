@@ -6,7 +6,7 @@
 
     <div class="text-center container">
       <br />
-      <form>
+       
         <fieldset>
           <center>
             <div class="form-group" style="width: 40%">
@@ -41,16 +41,17 @@
               </select>
             </div>
           </center>
-          <button
+          
+        </fieldset>
+       
+      <button
             type="submit"
             class="btn btn-primary"
-              
+            @click='show = !show'  
             style="margin-top: 40px"
           >
             Find Best App
           </button>
-        </fieldset>
-      </form>
     </div>
 
 
@@ -59,7 +60,7 @@
 
 
     <div class="container">
-      <div   >
+      <div   v-show="show" >
         <h3 class="m-5">Best Apps</h3>
         <div class="row">
           <div v-for="(item, index) in items" :key="index">
