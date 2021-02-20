@@ -11,8 +11,8 @@
           <center>
             <div class="form-group" style="width: 40%">
               <label for="device"></label>
-              <select id="device" class="form-control">
-                <option>Select Device</option>
+              <select v-model="device" id="device" class="form-control">
+                <option value="null" disabled>Select Device</option>
                 <option>X</option>
                 <option>Y</option>
                 <option>Z</option>
@@ -22,8 +22,8 @@
           <center>
             <div class="form-group" style="width: 40%">
               <label for="devicemodel"></label>
-              <select id="devicemodel" class="form-control">
-                <option>Select Device Model</option>
+              <select id="devicemodel" v-model="devicemodel"  class="form-control">
+                <option value="null" disabled >Select Device Model</option>
                 <option>A</option>
                 <option>B</option>
                 <option>c</option>
@@ -33,8 +33,8 @@
           <center>
             <div class="version" style="width: 40%">
               <label for="version"></label>
-              <select id="version" class="form-control">
-                <option>Select Version</option>
+              <select id="version" v-model="version" class="form-control">
+                <option value="null" disabled >Select Version</option>
                 <option>1.0</option>
                 <option>2.0</option>
                 <option>3.0</option>
@@ -47,7 +47,7 @@
       <button
             type="submit"
             class="btn btn-primary"
-            @click='show = !show'  
+            @click='findBestApp'  
             style="margin-top: 40px"
           >
             Find Best App
@@ -95,6 +95,10 @@
           </div>
         </div>
       </div>
+      <div v-show="noresult" >
+          <h3><b>No Any Result </b></h3>
+      </div>
+
     </div>
   </div>
 </template>
@@ -103,7 +107,11 @@
 export default {
   data() {
     return {
+      device:null,
+      devicemodel:null,
+      version:null,
       show: false,
+      noresult :false,
       items: [
         { img: "1578.png" },
         { img: "App A.png" },
@@ -121,6 +129,18 @@ export default {
     getImgUrl: function (imagePath) {
       return require("@/assets/" + imagePath);
     },
+    findBestApp(){
+      this.show = false;
+      this.noresult=false;
+      if( this.device != null &&  this.devicemodel != null && this.version != null ){
+          this.show =  true;
+      }else{
+          this.noresult = true;
+      }
+        
+    }
+
+
   },
 };
 </script>
