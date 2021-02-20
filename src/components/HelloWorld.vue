@@ -44,6 +44,7 @@
           <button
             type="submit"
             class="btn btn-primary"
+              
             style="margin-top: 40px"
           >
             Find Best App
@@ -52,39 +53,43 @@
       </form>
     </div>
 
+
+
+
+
+
     <div class="container">
-      <h3 class="m-5">Best Apps</h3>
-      <div class="row">
-        <div v-for="(item, index) in items" :key="index">
-          <div class="card" style="width: 12rem; margin: 1rem">
-            <img
-              class="card-img-top"
-              src="../assets/1578.png"
-              alt="Card image cap"
-            />
-            <div class="card-body text-center">
-              <h5 class="card-title text-center">App A</h5>
-              <input type="button" class="btn btn-success" value="Install" />
+      <div   >
+        <h3 class="m-5">Best Apps</h3>
+        <div class="row">
+          <div v-for="(item, index) in items" :key="index">
+            <div class="card" style="width: 12rem; margin: 1rem">
+              <img
+                class="card-img-top"
+                :src="getImgUrl(item.img)"
+                alt="Card image cap"
+              />
+              <div class="card-body text-center">
+                <h5 class="card-title text-center">App A</h5>
+                <input type="button" class="btn btn-success" value="Install" />
+              </div>
             </div>
           </div>
         </div>
-      </div>
 
-      <h3 class="m-5">Select Apps</h3>
-      <div class="row">
-        <div v-for="(item, index) in items" :key="index">
-          <div class="card" style="width: 12rem; margin: 1rem">
-         
-           
-          
-            <img
-              class="card-img-top"
-              :src= "item.img"
-              alt="Card image cap"
-            />
-            <div class="card-body text-center">
-              <h5 class="card-title text-center">App A</h5>
-              <input type="button" class="btn btn-success" value="Install" />
+        <h3 class="m-5">Select Apps</h3>
+        <div class="row">
+          <div v-for="(item, index) in items" :key="index">
+            <div class="card" style="width: 12rem; margin: 1rem">
+              <img
+                class="card-img-top"
+                :src="getImgUrl(item.img)"
+                alt="Card image cap"
+              />
+              <div class="card-body text-center">
+                <h5 class="card-title text-center">App A</h5>
+                <input type="button" class="btn btn-success" value="Install" />
+              </div>
             </div>
           </div>
         </div>
@@ -97,15 +102,21 @@
 export default {
   data() {
     return {
+      show: false,
       items: [
-        { img: "../assets/1578.png" },
-        { img: "../assets/App A.png" },
-        { img: "../assets/App B.png" },
-        { img: "../assets/App C.png" },
-        { img: "../assets/App D.png" },
-        { img: "../assets/App E.jpg" },
+        { img: "1578.png" },
+        { img: "App A.png" },
+        { img: "App B.png" },
+        { img: "App C.png" },
+        { img: "App D.png" },
+        { img: "App E.jpg" },
       ],
     };
+  },
+  methods: {
+    getImgUrl: function (imagePath) {
+      return require("@/assets/" + imagePath);
+    },
   },
 };
 </script>
