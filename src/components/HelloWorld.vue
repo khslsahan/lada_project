@@ -53,27 +53,39 @@
     </div>
 
     <div class="container">
+      <h3 class="m-5">Best Apps</h3>
       <div class="row">
-        <div class="card" style="width: 13rem; margin: 3rem">
-          <img
-            class="card-img-top"
-            src="../assets/1578.png"
-            alt="Card image cap"
-          />
-          <div class="card-body text-center">
-            <h5 class="card-title text-center">App A</h5>
-            <input type="button" class="btn btn-success" value="Install" />
+        <div v-for="(item, index) in items" :key="index">
+          <div class="card" style="width: 12rem; margin: 1rem">
+            <img
+              class="card-img-top"
+              src="../assets/1578.png"
+              alt="Card image cap"
+            />
+            <div class="card-body text-center">
+              <h5 class="card-title text-center">App A</h5>
+              <input type="button" class="btn btn-success" value="Install" />
+            </div>
           </div>
         </div>
-        <div class="card" style="width: 13rem">
-          <img
-            class="card-img-top"
-            src="../assets/1578.png"
-            alt="Card image cap"
-          />
-          <div class="card-body text-center">
-            <h5 class="card-title text-center">App A</h5>
-            <input type="button" class="btn btn-success" value="Install" />
+      </div>
+
+      <h3 class="m-5">Select Apps</h3>
+      <div class="row">
+        <div v-for="(item, index) in items" :key="index">
+          <div class="card" style="width: 12rem; margin: 1rem">
+         
+           
+          
+            <img
+              class="card-img-top"
+              :src= "item.img"
+              alt="Card image cap"
+            />
+            <div class="card-body text-center">
+              <h5 class="card-title text-center">App A</h5>
+              <input type="button" class="btn btn-success" value="Install" />
+            </div>
           </div>
         </div>
       </div>
@@ -82,7 +94,20 @@
 </template>
  
  <script>
-export default {};
+export default {
+  data() {
+    return {
+      items: [
+        { img: "../assets/1578.png" },
+        { img: "../assets/App A.png" },
+        { img: "../assets/App B.png" },
+        { img: "../assets/App C.png" },
+        { img: "../assets/App D.png" },
+        { img: "../assets/App E.jpg" },
+      ],
+    };
+  },
+};
 </script>
  
  <style>
